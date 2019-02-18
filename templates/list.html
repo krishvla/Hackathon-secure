@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IP Dashboard</title>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <ul class="pager">
+    <li class="previous"><a class="btn btn-outline-success" href="/Home">Home</a></li>
+    <li class="previous"><a class="btn btn-outline-success" href="/addpatient">Add Patient</a></li>
+    <li class="previous"><a class="btn btn-outline-success" href="/totalpatients/{{session.login_id}}">Total Patients</a></li>
+    <li class="next"><a class="btn btn-outline-danger" href="/logout">Log Out</a></li>
+  </ul>
+</head>
+<body>
+    <div class="well">
+      <ul class="pager">
+        <li class="previous"><a href="#">Patient_id</a></li>
+        <li class="previous"><a class="btn btn-outline-success" href="#">location</a></li>
+        <li class="previous"><a class="btn btn-outline-danger" href="#">phone_number</a></li>
+      </ul>
+    </div>
+    {% for plist in plist %}
+    <div class="well">
+      <ul class="pager">
+        <li class="previous"><a href="#">{{plist.login_id}}</a></li>
+        <li class="previous"><a class="btn btn-outline-success" href="#">{{plist.location}}</a></li>
+        <li class="previous"><a class="btn btn-outline-danger" href="#">{{plist.phone_number}}</a></li>
+        <li class="next"><a class="btn btn-outline-danger" href="/diagnosis/{{plist.login_id}}">Review</a></li>
+        <li class="next"><a class="btn btn-outline-danger" href="/msg/{{session.login_id}}/{{plist.login_id}}">Message</a></li>
+        <li class="next"><a class="btn btn-outline-danger" href="/results/{{plist.login_id}}">Analysis</a></li>
+      </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>

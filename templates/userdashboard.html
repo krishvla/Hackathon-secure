@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Updates</title>
+</head>
+<body>
+	{% if update!=0 %}
+		{% for update in update %}
+		<div class="well">
+			<ul class="pager">
+			  <li class="previous"><a href="#">{{update.update_id}}</a></li>
+			  <li class="previous"><a href="#">Reffered By: -{{update.ref_by}}</a></li>
+			</ul>
+			<p>{{update.message}}</p>
+		</div>
+		{% endfor %}
+	{% else %}
+		<div class="well">
+			<p>No Updates Are Here</p>
+		</div>
+	{% endif %}
+		
+
+</body>
+</html>
+  
+{% endblock %}

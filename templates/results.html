@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SECUrE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <ul class="pager">
+    <li class="previous"><a class="btn btn-outline-danger" href="/Home">Home</a></li>
+    <li class="previous"><a class="btn btn-outline-danger" href="/totalpatients/{{session.login_id}}">Total Patients</a></li>
+    <li class="next"><a class="btn btn-outline-danger" href="/logout">Log Out</a></li>
+  </ul>
+</head>
+<body>
+
+<div class="container">
+  <h2>Patient Reults for ID: {{p_id}}</h2>
+  <div class="progress">
+    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:{{p_at}}%">
+      ACTIVE DISEASE is: {{p_at}}%
+    </div>
+    <div class="progress-bar progress-bar-success progress-bar-striped " role="progressbar" style="width:{{p_pd}}%">
+      Pott's Disease: {{p_pd}}%
+    </div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:{{p_pt}}%">
+      Pulmonary is: {{p_pt}}% 
+    </div>
+    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:{{p_et}}%">
+      Extrapulmonary is :{{p_et}}% 
+    </div>
+  </div>
+</div>
+<p><font color="red">Special Cases</font></p>
+    <div class="well">
+      <ul class="pager">
+            <li class="previous"><a href="#">{{spe}}</a></li>
+      </ul>
+    </div>
+
+</body>
+</html>

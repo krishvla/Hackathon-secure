@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			background-image: url('https://i.pinimg.com/originals/5a/4f/05/5a4f053d3cac434ada0c1cfda611629a.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+	<title>Diagnosis</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <ul class="pager">
+    <li class="previous"><a class="btn btn-outline-danger" href="/Home">Home</a></li>
+    <li class="previous"><a class="btn btn-outline-danger" href="/totalpatients/{{session.login_id}}">Total Patients</a></li>
+    <li class="next"><a class="btn btn-outline-danger" href="/logout">Log Out</a></li>
+  </ul>
+</head>
+<body>
+	{% include 'includes/_messages.html'%}
+	<p><font color="red">Select The Symptoms to configure the Type of Decease</font></p>
+		<div class="well">
+			<ul class="pager">
+			  {% for diag in diag %}
+			  		<li class="previous"><a href="/{{p_id}}/{{diag.id}}">{{diag.sym}}</a></li>	
+			  {% endfor %}
+			</ul>
+		</div>
+		<p><font color="red">Special Cases</font></p>
+		<div class="well">
+			<ul class="pager">
+			  {% for spe in spe %}
+			  		<li class="previous"><a href="/{{p_id}}/{{spe.id}}">{{spe.sym}}</a></li>	
+			  {% endfor %}
+			</ul>
+		</div>
+		
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+    <html lang="en">
+    <style type="text/css">
+    	table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+/*tr:nth-child(even){background-color: #f2f2f2}*/
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:hover {background-color:#f5f5f5;}
+
+    </style>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Ip Admin Dashboard</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+      {% include 'includes/_messages.html'%}
+      <nav class="" id="mainNav">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+              <a class="nav-link" href="/dashboard">
+                <i class="fa fa-fw fa-dashboard"></i>
+                <ul class="navbar-nav navbar-right">
+                  <li><a href="/logout">Logout</a></li>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="content-wrapper">
+        <div class="container-fluid">
+          <ol class="breadcrumb">
+              <a href="/dashboard" style="margin-right: 1140px" >Dashboard</a>
+            </li>
+            <ul class="navbar-nav navbar-left">
+              <li><a href="/logout" class="btn btn-warning btn-sm">Logout</a></li>
+            </ul>
+          </ol>
+            <div class="col-lg-13">
+          <div class="card mb-5">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Total Users</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-success">
+		<tr>
+			<th>LOGIN ID</th>
+      <th>Role</th>
+			<th>PHONE NUMMBER</th>
+      <th>Status</th>
+      <th><a href="#" class="btn btn-primary"> Add User</a></th>
+		</tr>
+		{% for user in user %}
+      {% if user.login_id!='12345' %}
+			<tr>
+				<td>{{user.login_id}}</td>
+				<td>{{user.role}}</td>
+				<td>{{user.phone_number}}</td>
+        <td>{{user.status}}</td>
+        {% if user.status !='y' %}
+          <td><a href="cs/{{user.login_id}}" class="btn btn-info pull-right">Approve</a></td>
+        {% endif %}
+			</tr>
+      {% endif %}
+		{% endfor %}
+  </table>
+  <div class="col-lg-14">
+          <div class="card mb-4">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Total Patients Under Analysis</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-success">
+    <tr>
+      <th>Patient ID</th>
+      <th>Active TB</th>
+      <th>Pulmonary TB</th>
+      <th>Extrapulmonary TB</th>
+      <th>Pott's Disease</th>
+    </tr>
+    {% for res in res %}
+      <tr>
+        <td>{{res.pid_id}}</td>
+        <td>{{res.at}}</td>
+        <td>{{res.pt}}</td>
+        <td>{{res.et}}</td>
+        <td>{{res.pd}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+    </body>
+    </html>
